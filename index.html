@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://telegram.org/js/telegram-web-app.js"></script>
+		<script defer src="js/pollCreate.js"></script>
+	</head>
+	<body>
+		<form id="createPollForm" onsubmit="return false">
+			<div>
+				<label for="title">Заголовок:</label>
+				<input id="title" type="text" placeholder="Введите заголовок"/>
+			</div>
+			<div">
+				<label for="options">Варианты ответа:</label>
+				<div id="optionsContainer">
+					<div>
+						<label for="option1">1.</label>
+						<input id="option1" type="text" placeholder="Введите вариант ответа"/>
+						<button type="button" onclick="deleteOption(this)" disabled>-</button>			
+					</div>
+					<div>
+						<label for="option2">2.</label>
+						<input id="option2" type="text" placeholder="Введите вариант ответа"/>
+						<button type="button" onclick="deleteOption(this)" disabled>-</button>			
+					</div>
+				</div>
+			</div>
+			<button id="addOptionButton" type="button" onclick="addOption()">Добавить вариант</button>
+		</form>
+	</body>
+</html>
