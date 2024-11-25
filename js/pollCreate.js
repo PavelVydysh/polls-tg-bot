@@ -12,7 +12,7 @@ function addOption() {
     const newOption = document.createElement('div');
     newOption.innerHTML = `
         <label for="option${optionCount}">${optionCount}.</label>
-        <input id="option${optionCount}" type="text" placeholder="Введите вариант ответа"/>
+        <input id="option${optionCount}" type="text" placeholder="Введите вариант ответа" oninput="checkFormValidity()"/>
         <button type="button" onclick="deleteOption(this)">-</button>
     `;
     optionsContainer.appendChild(newOption);
