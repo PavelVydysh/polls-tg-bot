@@ -1,5 +1,7 @@
 let optionCount = 2;
 
+window.Telegram.WebApp.ready();
+
 function addOption() {
     if(optionCount >= 10) {
         return;
@@ -53,5 +55,25 @@ function deleteOption(button) {
             const button = option.querySelector('button');
             button.disabled = true;
         });
+    }
+}
+
+function checkFormValidity() {
+    const title = document.getElementById('title').value.trim();
+    const options = document.querySelectorAll('#optionsContainer input');
+    let allFilled = true;
+
+    options.forEach(option => {
+        if (option.value.trim() === '') {
+            allFilled = false;
+        }
+    });
+
+    if (title !== '' && options.length >= 2 && allFilled) {
+        window.Telegram.WebApp.MainButton.setText("Создать");
+        window.Telegram.WebApp.MainButton.show();
+        window.Telegram.WebApp.MainButton.enable();
+    } else {
+        window.Telegram.WebApp.MainButton.hide();
     }
 }
